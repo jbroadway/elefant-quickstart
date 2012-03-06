@@ -1,0 +1,7 @@
+web1: 
+  name: elefant-web 
+  shared_writable_dirs:
+    - cache/
+    - files/
+db1:
+  name: elefant-db
