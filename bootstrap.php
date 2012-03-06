@@ -10,7 +10,7 @@ conf ('Database', 'master', array (
 
 // After the first run through, you can comment out or remove
 // this entire block and redeploy.
-if (! db_shift ('select count(*) from users')) {
+if (! db_shift ('select count(*) from user')) {
 	// Run the db install
 	$sqldata = sql_split (file_get_contents ('conf/install_mysql.sql'));
 	db_execute ('begin');
