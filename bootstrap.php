@@ -2,7 +2,7 @@
 
 conf ('Database', 'master', array (
 	'driver' => 'mysql',
-	'host' => $_SERVER["DB1_HOST"],
+	'host' => $_SERVER["DB1_HOST"] . ':' . $_SERVER["DB1_PORT"] ,
 	'name' => $_SERVER["DB1_NAME"],
 	'user' => $_SERVER["DB1_USER"],
 	'pass' => $_SERVER["DB1_PASS"]
@@ -26,8 +26,8 @@ if (! db_shift ('select count(*) from users')) {
 	$date = gmdate ('Y-m-d H:i:s');
 	if (! db_execute (
 		'insert into `user` (id, email, password, session_id, expires, name, type, signed_up, updated, userdata) values (1, ?, ?, null, ?, ?, "admin", ?, ?, ?)',
-		'you@example.com',
-		User::encrypt_pass ('ChangeMe'),
+		$_SERVER["DEFAULT_EMAIL"],
+		User::encrypt_pass ($_SERVER["DEFAULT_PASS"]),
 		$date,
 		'Admin User',
 		$date,

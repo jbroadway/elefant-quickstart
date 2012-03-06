@@ -1,5 +1,9 @@
-web1: 
-  name: elefant-web 
+global:
+  env:
+    - DEFAULT_EMAIL: "you@example.com"
+    - DEFAULT_PASS: "ChangeMe"
+web1:
+  name: elefant-web
   shared_writable_dirs:
     - cache/
     - files/
